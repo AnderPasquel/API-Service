@@ -31,13 +31,13 @@ namespace api.web.Controllers
         /// <summary>
         /// Get Products Pageble.
         /// </summary>
-        /// <param name="pid"></param> 
+        /// <param name="page"></param> 
         [HttpGet]
-        [Route("/v1/{pid}/products")]
-        public IEnumerable<Products> GetPagable(int pid)
+        [Route("/v1/{page}/products")]
+        public IEnumerable<Products> GetPagable(int page)
         {
-            PageManager page = new PageManager(pid);
-            return _service.GetPage(page);
+            PageManager pageManager = new PageManager(page);
+            return _service.GetPage(pageManager);
         }
 
         /// <summary>
